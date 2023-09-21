@@ -1,0 +1,47 @@
+<div class="form-container">
+  <!-- TITULO DEL DIALOG -->
+  <h1 mat-dialog-title>Crear nueva Película</h1>
+  <mat-dialog-content>
+    <!-- DESCRIPCION -->
+    <p>Ingresa los datos de la película a crear</p>
+
+    <!-- INPUT DE NAME -->
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input matInput required [(ngModel)]="peliculaData.name" />
+    </mat-form-field>
+
+    <!-- INPUT DE PHOTO -->
+    <mat-form-field appearance="outline">
+      <mat-label>Foto</mat-label>
+      <input matInput required [(ngModel)]="peliculaData.photo" />
+    </mat-form-field>
+
+    <!-- INPUT DE DURACION -->
+    <mat-form-field appearance="outline">
+      <mat-label>Duración</mat-label>
+      <input matInput required type="number" [(ngModel)]="peliculaData.duracion" />
+    </mat-form-field>
+
+    <!-- INPUT DE GENERO -->
+    <mat-form-field appearance="outline">
+      <mat-label>Género</mat-label>
+      <input matInput required [(ngModel)]="peliculaData.genero" />
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <!-- BOTONES DEL DIALOG -->
+  <mat-dialog-actions>
+    <button mat-stroked-button color="primary" (click)="dialogRef.close(false)">
+      Cancelar
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      cdkFocusInitial
+      (click)="onSubmit()"
+    >
+      Agregar
+    </button>
+  </mat-dialog-actions>
+</div>

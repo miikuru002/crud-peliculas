@@ -1,0 +1,102 @@
+{
+  "peliculas": [
+    {
+      "id": 1,
+      "name": "Pelicula 1",
+      "photo": "photo",
+      "duracion": 110,
+      "genero": "ACCIÓN"
+    },
+    {
+      "id": 2,
+      "name": "Pelicula 2",
+      "photo": "photo",
+      "duracion": 110,
+      "genero": "ACCIÓN"
+    },
+    {
+      "id": 3,
+      "name": "Pelicula 3",
+      "photo": "photo",
+      "duracion": 130,
+      "genero": "COMEDIA"
+    },
+    {
+      "id": 4,
+      "name": "Pelicula 4",
+      "photo": "photo",
+      "duracion": 125,
+      "genero": "DRAMA"
+    },
+    {
+      "id": 5,
+      "name": "Pelicula 5",
+      "photo": "photo",
+      "duracion": 115,
+      "genero": "CIENCIA FICCIÓN"
+    },
+    {
+      "id": 6,
+      "name": "Pelicula 6",
+      "photo": "photo",
+      "duracion": 140,
+      "genero": "TERROR"
+    },
+    {
+      "id": 7,
+      "name": "Pelicula 7",
+      "photo": "photo",
+      "duracion": 105,
+      "genero": "ROMANCE"
+    },
+    {
+      "id": 8,
+      "name": "Pelicula 8",
+      "photo": "photo",
+      "duracion": 125,
+      "genero": "ANIMACIÓN"
+    },
+    {
+      "id": 9,
+      "name": "Pelicula 9",
+      "photo": "photo",
+      "duracion": 135,
+      "genero": "AVENTURA"
+    },
+    {
+      "id": 10,
+      "name": "Pelicula 10",
+      "photo": "photo",
+      "duracion": 120,
+      "genero": "MISTERIO"
+    },
+    {
+      "name": "a",
+      "photo": "a",
+      "duracion": "a",
+      "genero": "a",
+      "id": 11
+    },
+    {
+      "name": "aaa",
+      "photo": "aa",
+      "genero": "aa",
+      "duracion": "aa",
+      "id": 12
+    },
+    {
+      "name": "22",
+      "photo": "22",
+      "duracion": "22",
+      "genero": "222",
+      "id": 13
+    },
+    {
+      "name": "aaa",
+      "photo": "aaaa",
+      "duracion": "22",
+      "genero": "22",
+      "id": 14
+    }
+  ]
+}
