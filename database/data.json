@@ -2,10 +2,10 @@
   "peliculas": [
     {
       "id": 1,
-      "name": "Pelicula 1",
-      "photo": "photo",
-      "duracion": 110,
-      "genero": "ACCIÓN"
+      "name": "Pelicula 111111111111",
+      "photo": "photo23323",
+      "duracion": 110555,
+      "genero": "ACCIÓN1111"
     },
     {
       "id": 2,
@@ -62,41 +62,6 @@
       "photo": "photo",
       "duracion": 135,
       "genero": "AVENTURA"
-    },
-    {
-      "id": 10,
-      "name": "Pelicula 10",
-      "photo": "photo",
-      "duracion": 120,
-      "genero": "MISTERIO"
-    },
-    {
-      "name": "a",
-      "photo": "a",
-      "duracion": "a",
-      "genero": "a",
-      "id": 11
-    },
-    {
-      "name": "aaa",
-      "photo": "aa",
-      "genero": "aa",
-      "duracion": "aa",
-      "id": 12
-    },
-    {
-      "name": "22",
-      "photo": "22",
-      "duracion": "22",
-      "genero": "222",
-      "id": 13
-    },
-    {
-      "name": "aaa",
-      "photo": "aaaa",
-      "duracion": "22",
-      "genero": "22",
-      "id": 14
     }
   ]
 }

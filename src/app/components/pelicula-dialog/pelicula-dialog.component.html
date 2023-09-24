@@ -1,9 +1,11 @@
 <div class="form-container">
   <!-- TITULO DEL DIALOG -->
-  <h1 mat-dialog-title>Crear nueva Película</h1>
+  <h1 mat-dialog-title *ngIf="!isEditMode">Crear nueva Película</h1>
+  <h1 mat-dialog-title *ngIf="isEditMode">Actualizar Película</h1>
   <mat-dialog-content>
     <!-- DESCRIPCION -->
-    <p>Ingresa los datos de la película a crear</p>
+    <p *ngIf="!isEditMode">Ingresa los datos de la película a crear</p>
+    <p *ngIf="isEditMode">Ingresa los datos de la película a actualizar</p>
 
     <!-- INPUT DE NAME -->
     <mat-form-field appearance="outline">
@@ -20,7 +22,12 @@
     <!-- INPUT DE DURACION -->
     <mat-form-field appearance="outline">
       <mat-label>Duración</mat-label>
-      <input matInput required type="number" [(ngModel)]="peliculaData.duracion" />
+      <input
+        matInput
+        required
+        type="number"
+        [(ngModel)]="peliculaData.duracion"
+      />
     </mat-form-field>
 
     <!-- INPUT DE GENERO -->
@@ -39,7 +46,17 @@
       mat-raised-button
       color="primary"
       cdkFocusInitial
-      (click)="onSubmit()"
+      (click)="updatePelicula()"
+      *ngIf="isEditMode"
+    >
+      Actualizar
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      cdkFocusInitial
+      (click)="createPelicula()"
+      *ngIf="!isEditMode"
     >
       Agregar
     </button>

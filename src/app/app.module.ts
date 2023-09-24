@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PeliculaDialogComponent } from './components/pelicula-dialog/pelicula-dialog.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ShareDataService } from './services/share-data.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [ShareDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

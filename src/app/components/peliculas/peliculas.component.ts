@@ -3,7 +3,8 @@ import { PeliculasService } from '../../services/peliculas.service';
 import { Pelicula } from 'src/typings';
 import { MatDialog } from '@angular/material/dialog';
 import { PeliculaDialogComponent } from '../pelicula-dialog/pelicula-dialog.component';
-import { Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ShareDataService } from 'src/app/services/share-data.service';
 
 @Component({
   selector: 'app-peliculas',
@@ -27,10 +28,12 @@ export class PeliculasComponent {
   //*inyectar las dependencias (servicio)
   constructor(
     private peliculasService: PeliculasService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar,
+    private sharedService: ShareDataService
   ) {
     //se inicializa una suscripción para el observable peliculaCreated$ (para detectar la creación de películas)
-    this.peliculasService.peliculaCreated$.subscribe(() => {
+    this.peliculasService.peliculaChanged$.subscribe(() => {
       this.getPeliculas(); //actualiza la lista de películas cuando se crea una nueva película
     });
   }
@@ -55,8 +58,54 @@ export class PeliculasComponent {
    * Obtiene el listado de peliculas del servicio (READ)
    */
   getPeliculas() {
-    this.peliculasService.getList().subscribe((response) => {
-      this.dataSource = response;
+    this.peliculasService.getList().subscribe({
+      //sirve para obtener la respuesta del servidor y para desencadenar acciones
+      next: (response) => {
+        this.dataSource = response;
+        // this.openSnackBar("Datos cargados correctamente");
+      },
+      //se ejecuta cuando hay un error
+      error: (error) => {
+        this.openSnackBar(`Error al cargar datos -> ${error.message}`);
+      },
     });
+  }
+
+  /**
+   * Elimina una pelicula
+   * @param peliculaId Id de la pelicula a eliminar
+   */
+  deletePelicula(peliculaId: number) {
+    this.peliculasService.deletePelicula(peliculaId).subscribe({
+      next: () => {
+        this.openSnackBar('Pelicula eliminada correctamente', 'Ok');
+      },
+      error: (error) => {
+        this.openSnackBar(`Error al eliminar pelicula -> ${error.message}`);
+      },
+    });
+  }
+
+  /**
+   * Actualiza una pelicula
+   * @param peliculaData Datos de la pelicula a actualizar
+   */
+  editPelicula(peliculaData: Pelicula) {
+    //se asigna el objeto a compartir con el otro componente
+    this.sharedService.sharedObject = {
+      isEditMode: true,
+      peliculaDataToEdit: peliculaData,
+    }
+
+    this.openDialog();
+  }
+
+  /**
+   * Abre la alerta de snackbar
+   * @param message Mensaje a mostrar
+   * @param action Acción
+   */
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, { duration: 5_000 });
   }
 }

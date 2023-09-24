@@ -32,14 +32,14 @@ export class PeliculasService {
     );
   }
 
-  //observable que notificará la creación de películas
-  private peliculaCreatedSubject = new Subject<void>();
-  //método para emitir una notificación de creación de película
-  private onPeliculaCreated() {
-    this.peliculaCreatedSubject.next();
+  //observable que notificará cuando se crea/actualiza/elimina una película
+  private peliculaChangedSubject = new Subject<void>();
+  //método para emitir una notificación de película
+  private onPeliculaChanged() {
+    this.peliculaChangedSubject.next();
   }
-  //observable que los componentes pueden suscribir para detectar creación de películas
-  peliculaCreated$ = this.peliculaCreatedSubject.asObservable();
+  //observable que los componentes pueden suscribir para detectar la notificación
+  peliculaChanged$ = this.peliculaChangedSubject.asObservable();
 
   /**
    * Obtiene la lista de peliculas (GET)
@@ -52,14 +52,42 @@ export class PeliculasService {
 
   /**
    * Crea una pelicula (POST)
-   * @param pelicula Datos de la pelicula a crear
+   * @param peliculaData Datos de la pelicula a crear
    */
-  create(pelicula: Pelicula) {
-    return this.http.post(environment.baseUrl, pelicula).pipe(
+  create(peliculaData: Pelicula) {
+    return this.http.post(environment.baseUrl, peliculaData).pipe(
       catchError(this.handlerError),
       tap(() => {
-        this.onPeliculaCreated(); // Esto recupera la lista actualizada de películas
+        this.onPeliculaChanged(); // Esto recupera la lista actualizada de películas
       })
     );
+  }
+
+  /**
+   * Elimina una pelicula (DELETE)
+   * @param peliculaId Id de la pelicula a eliminar
+   */
+  deletePelicula(peliculaId: number) {
+    return this.http.delete(`${environment.baseUrl}/${peliculaId}`).pipe(
+      catchError(this.handlerError),
+      tap(() => {
+        this.onPeliculaChanged(); // Esto recupera la lista actualizada de películas
+      })
+    );
+  }
+
+  /**
+   * Actualiza una pelicula (PUT)
+   * @param peliculaData Datos de la pelicula a actualizar
+   */
+  updatePelicula(peliculaData: Pelicula) {
+    return this.http
+      .put(`${environment.baseUrl}/${peliculaData.id}`, peliculaData)
+      .pipe(
+        catchError(this.handlerError),
+        tap(() => {
+          this.onPeliculaChanged(); // Esto recupera la lista actualizada de películas
+        })
+      );
   }
 }
