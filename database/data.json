@@ -2,10 +2,10 @@
   "peliculas": [
     {
       "id": 1,
-      "name": "Pelicula 111111111111",
-      "photo": "photo23323",
-      "duracion": 110555,
-      "genero": "ACCIÓN1111"
+      "name": "Pelicula 1",
+      "photo": "photo ctualizada",
+      "duracion": 110,
+      "genero": "ACCIÓN ACTUALIZADA"
     },
     {
       "id": 2,
@@ -62,6 +62,20 @@
       "photo": "photo",
       "duracion": 135,
       "genero": "AVENTURA"
+    },
+    {
+      "name": "Pleicula 10",
+      "photo": "111",
+      "duracion": 11,
+      "genero": "11",
+      "id": 10
+    },
+    {
+      "id": 11,
+      "name": "pelicuta 15",
+      "photo": "abc",
+      "duracion": 120,
+      "genero": "abc"
     }
   ]
 }

@@ -11,9 +11,9 @@ import { HomeComponent } from './components/home/home.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PeliculaDialogComponent } from './components/pelicula-dialog/pelicula-dialog.component';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ShareDataService } from './services/share-data.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { ShareDataService } from './services/share-data.service';
     MaterialModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ShareDataService],
   bootstrap: [AppComponent],

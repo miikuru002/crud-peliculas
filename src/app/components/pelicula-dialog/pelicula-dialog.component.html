@@ -7,39 +7,45 @@
     <p *ngIf="!isEditMode">Ingresa los datos de la película a crear</p>
     <p *ngIf="isEditMode">Ingresa los datos de la película a actualizar</p>
 
-    <!-- INPUT DE NAME -->
-    <mat-form-field appearance="outline">
-      <mat-label>Nombre</mat-label>
-      <input matInput required [(ngModel)]="peliculaData.name" />
-    </mat-form-field>
+    <form [formGroup]="form">
+      <!-- INPUT DE NAME -->
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput required formControlName="name" />
+        <mat-error>El nombre es requerido</mat-error>
+      </mat-form-field>
 
-    <!-- INPUT DE PHOTO -->
-    <mat-form-field appearance="outline">
-      <mat-label>Foto</mat-label>
-      <input matInput required [(ngModel)]="peliculaData.photo" />
-    </mat-form-field>
+      <!-- INPUT DE PHOTO -->
+      <mat-form-field appearance="outline">
+        <mat-label>Foto</mat-label>
+        <input matInput required formControlName="photo" />
+        <mat-error>La foto es requerido</mat-error>
+      </mat-form-field>
 
-    <!-- INPUT DE DURACION -->
-    <mat-form-field appearance="outline">
-      <mat-label>Duración</mat-label>
-      <input
-        matInput
-        required
-        type="number"
-        [(ngModel)]="peliculaData.duracion"
-      />
-    </mat-form-field>
+      <!-- INPUT DE DURACION -->
+      <mat-form-field appearance="outline">
+        <mat-label>Duración</mat-label>
+        <input
+          matInput
+          required
+          type="number"
+          formControlName="duracion"
+        />
+        <mat-error>Ingrese una duración válida</mat-error>
+      </mat-form-field>
 
-    <!-- INPUT DE GENERO -->
-    <mat-form-field appearance="outline">
-      <mat-label>Género</mat-label>
-      <input matInput required [(ngModel)]="peliculaData.genero" />
-    </mat-form-field>
+      <!-- INPUT DE GENERO -->
+      <mat-form-field appearance="outline">
+        <mat-label>Género</mat-label>
+        <input matInput required formControlName="genero" />
+        <mat-error>El género es requerido</mat-error>
+      </mat-form-field>
+    </form>
   </mat-dialog-content>
 
   <!-- BOTONES DEL DIALOG -->
   <mat-dialog-actions>
-    <button mat-stroked-button color="primary" (click)="dialogRef.close(false)">
+    <button mat-stroked-button color="primary" (click)="closeDialog()">
       Cancelar
     </button>
     <button
@@ -57,6 +63,7 @@
       cdkFocusInitial
       (click)="createPelicula()"
       *ngIf="!isEditMode"
+      [disabled]="form.invalid"
     >
       Agregar
     </button>
