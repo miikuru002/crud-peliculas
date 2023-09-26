@@ -1,1 +1,56 @@
-<p>Esto es un landing...</p>
+<mat-card class="hero-card">
+  <img
+    mat-card-image
+    src="https://peruretail.sfo3.cdn.digitaloceanspaces.com/wp-content/uploads/CP-Xtreme.jpg"
+    alt="Hero image"
+    class="hero-image"
+  />
+</mat-card>
+
+<div class="cartelera-text">Cartelera</div>
+
+<div class="card-container">
+  <mat-card class="movie-card">
+    <img
+      mat-card-image
+      src="https://cdn.apis.cineplanet.com.pe/CDN/media/entity/get/FilmPosterGraphic/HO00001729?referenceScheme=HeadOffice&allowPlaceHolder=true"
+      alt="Movie image"
+      class="movie-image"
+    />
+  </mat-card>
+
+  <mat-card class="movie-card">
+    <img
+      mat-card-image
+      src="https://cdn.apis.cineplanet.com.pe/CDN/media/entity/get/FilmPosterGraphic/HO00001768?referenceScheme=HeadOffice&allowPlaceHolder=true"
+      alt="Movie image"
+      class="movie-image"
+    />
+  </mat-card>
+</div>
+
+<div class="card-container">
+  <mat-card class="movie-card">
+    <img
+      mat-card-image
+      src="https://cdn.apis.cineplanet.com.pe/CDN/media/entity/get/FilmPosterGraphic/HO00001789?referenceScheme=HeadOffice&allowPlaceHolder=true"
+      alt="Movie image"
+      class="movie-image"
+    />
+  </mat-card>
+
+  <mat-card class="movie-card">
+    <img
+      mat-card-image
+      src="https://cdn.apis.cineplanet.com.pe/CDN/media/entity/get/FilmPosterGraphic/HO00001760?referenceScheme=HeadOffice&allowPlaceHolder=true"
+      alt="Movie image"
+      class="movie-image"
+    />
+  </mat-card>
+</div>
+
+<div class="container">
+  <a mat-raised-button color="accent" [routerLink]="'/business/peliculas'">
+    <mat-icon>add</mat-icon> Ver más películas
+  </a>
+</div>
